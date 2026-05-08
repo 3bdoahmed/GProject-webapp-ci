@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 158 60% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 158 60% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 158 60% 8%;
+
+    --primary: 158 92% 17%;
+    --primary-foreground: 40 33% 97%;
+    --primary-glow: 158 70% 30%;
+
+    --secondary: 158 20% 94%;
+    --secondary-foreground: 158 92% 17%;
+
+    --muted: 40 20% 94%;
+    --muted-foreground: 158 15% 38%;
+
+    --accent: 43 56% 54%;
+    --accent-foreground: 158 60% 8%;
+    --accent-glow: 43 75% 65%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 158 15% 88%;
+    --input: 158 15% 90%;
+    --ring: 158 92% 17%;
+
+    --radius: 1rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(158 92% 17%), hsl(158 70% 30%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 56% 54%), hsl(43 75% 65%));
+    --gradient-mesh: radial-gradient(at 20% 10%, hsl(158 92% 17% / 0.08), transparent 50%),
+                     radial-gradient(at 80% 20%, hsl(43 56% 54% / 0.10), transparent 50%),
+                     radial-gradient(at 50% 80%, hsl(158 70% 30% / 0.06), transparent 50%);
+    --gradient-radial: radial-gradient(circle at center, hsl(158 70% 30% / 0.15), transparent 70%);
+
+    --shadow-glow: 0 20px 60px -15px hsl(158 92% 17% / 0.35);
+    --shadow-gold: 0 20px 60px -15px hsl(43 56% 54% / 0.35);
+    --shadow-card: 0 8px 30px -10px hsl(158 60% 8% / 0.10);
+    --shadow-elevated: 0 30px 80px -20px hsl(158 60% 8% / 0.18);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    --sidebar-background: 158 92% 13%;
+    --sidebar-foreground: 40 33% 92%;
+    --sidebar-primary: 43 56% 54%;
+    --sidebar-primary-foreground: 158 92% 13%;
+    --sidebar-accent: 158 60% 18%;
+    --sidebar-accent-foreground: 40 33% 97%;
+    --sidebar-border: 158 50% 22%;
+    --sidebar-ring: 43 56% 54%;
+  }
+
+  .dark {
+    --background: 158 30% 5%;
+    --foreground: 40 30% 95%;
+    --card: 158 30% 8%;
+    --card-foreground: 40 30% 95%;
+    --popover: 158 30% 8%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 158 70% 45%;
+    --primary-foreground: 158 30% 5%;
+    --primary-glow: 158 60% 55%;
+    --secondary: 158 25% 12%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 158 20% 12%;
+    --muted-foreground: 158 10% 65%;
+    --accent: 43 75% 60%;
+    --accent-foreground: 158 30% 5%;
+    --accent-glow: 43 80% 70%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 158 25% 16%;
+    --input: 158 25% 16%;
+    --ring: 158 70% 45%;
+    --gradient-hero: linear-gradient(135deg, hsl(158 70% 25%), hsl(158 60% 40%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 75% 50%), hsl(43 80% 65%));
+    --gradient-mesh: radial-gradient(at 20% 10%, hsl(158 70% 45% / 0.08), transparent 50%),
+                     radial-gradient(at 80% 20%, hsl(43 75% 60% / 0.08), transparent 50%),
+                     radial-gradient(at 50% 80%, hsl(158 60% 40% / 0.06), transparent 50%);
+    --shadow-glow: 0 20px 60px -15px hsl(158 70% 45% / 0.45);
+    --shadow-gold: 0 20px 60px -15px hsl(43 75% 60% / 0.35);
+    --shadow-card: 0 8px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 30px 80px -20px hsl(0 0% 0% / 0.7);
+    --sidebar-background: 158 30% 6%;
+    --sidebar-foreground: 40 30% 92%;
+    --sidebar-primary: 43 75% 60%;
+    --sidebar-primary-foreground: 158 30% 5%;
+    --sidebar-accent: 158 25% 14%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 158 25% 18%;
+    --sidebar-ring: 43 75% 60%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', system-ui, sans-serif; letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-gold { background: var(--gradient-gold); }
+  .gradient-mesh { background: var(--gradient-mesh); }
+  .gradient-radial { background: var(--gradient-radial); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .transition-smooth { transition: var(--transition-smooth); }
+
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  .glass-strong {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  .animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+}
+
+/* Thin themed scrollbar for the dashboard sidebar */
+[data-sidebar="content"] {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--sidebar-primary) / 0.5) transparent;
+}
+[data-sidebar="content"]::-webkit-scrollbar { width: 6px; height: 6px; }
+[data-sidebar="content"]::-webkit-scrollbar-track { background: transparent; }
+[data-sidebar="content"]::-webkit-scrollbar-thumb {
+  background: hsl(var(--sidebar-primary) / 0.45);
+  border-radius: 9999px;
+}
+[data-sidebar="content"]::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--sidebar-primary) / 0.75);
+}
