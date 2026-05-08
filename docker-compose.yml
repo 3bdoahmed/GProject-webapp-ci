@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  solar-dashboard:
+    build: .
+
+    container_name: solar-dashboard
+
+    ports:
+      - "80:80"
+
+    restart: unless-stopped
