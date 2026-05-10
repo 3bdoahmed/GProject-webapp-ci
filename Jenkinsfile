@@ -43,6 +43,7 @@ pipeline {
                 ]) {
 
                     sh '''
+                    rm -rf GProject-webapp-cd
                     git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/3bdoahmed/GProject-webapp-cd.git
 
                     cd GProject-webapp-cd
